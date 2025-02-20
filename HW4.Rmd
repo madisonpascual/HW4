@@ -5,6 +5,8 @@ date: "`r Sys.Date()`"
 output: pdf_document
 ---
 
+GitHub Link: [My Homework 4 Repository](https://github.com/madisonpascual/HW4)
+
 ```{r setup, include = FALSE, warning = FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 library(ggplot2)
@@ -20,7 +22,7 @@ library(mosaic)
 
 ## Problem 1 - Iron Bank
 ```{r}
-sim_trade_flips = do(100000) * nflip(n = 2021, prob = 0.024) # Simulating the probability test 100000 times
+sim_trade_flips = do(100000) * nflip(n = 2021, prob = 0.024)
 
 sim_trade_flips |>
   ggplot() +
@@ -31,7 +33,6 @@ sim_trade_flips |>
     y = "Count"
   )
 
-# How many simulations yield at least 70 flagged trades?
 sum(sim_trade_flips >= 70)/100000
 ```
 The null hypothesis of this problem is that over the long run, security trades from the Iron Bank are flagged at the same 2.4% baseline rate as that of other traders. The test statistic I used to measure the evidence against the null hypothesis is the number of flagged trades out of 2,021 total trades. I found the test statistic by using the nflip function and repeating the process 100,000 times to make a distribution of the potential outcomes. The p-value, 0.00196, is less than 0.05, suggesting that the number of flagged trades per 2,021 trades is significantly higher than the baseline rate of 2.4%.
